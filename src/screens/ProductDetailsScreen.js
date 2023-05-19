@@ -2,9 +2,10 @@ import { StyleSheet, View, Image, FlatList, Text, ScrollView, Pressable } from "
 import products from "../data/products"
 import { useWindowDimensions } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
+import { useSelector } from 'react-redux'
 
 const ProductDetailsScreen = () => {
-  const product = products[0]
+  const product = useSelector((state) => state.products.selectedProduct)
 
   const { width } = useWindowDimensions()
 
@@ -48,9 +49,9 @@ const ProductDetailsScreen = () => {
       </Pressable>
 
       {/* Navigation icon */}
-      <Pressable style={styles.icon}>
+      {/* <Pressable style={styles.icon}>
         <Ionicons name="close" size={24} color="white" />
-      </Pressable>
+      </Pressable> */}
     </View>
   )
 }
@@ -67,7 +68,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
   },
   description: {
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 90,
     fontSize: 18,
     lineHeight: 30,
     fontWeight: "300",
