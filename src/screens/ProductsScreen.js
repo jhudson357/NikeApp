@@ -5,7 +5,7 @@ const ProductsScreen = () => {
   return (
     <FlatList 
       data={products}
-      renderItem={({ item }) => (    // item in {} because each item in products is {}
+      renderItem={({ item }) => (
         <View style={styles.itemContainer}>
           <Image source={{ uri: item.image }} style={styles.image} />
         </View>
